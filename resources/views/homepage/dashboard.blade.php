@@ -1,7 +1,7 @@
 @include('layout.header')
 
 <nav class="navbar bg-dark border-bottom border-body navbar-expand-lg" data-bs-theme="dark">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="#">
       <img src="/img/logounhas.png" width="40" alt="">
     </a>
@@ -34,10 +34,9 @@
     <div class="jumbotron">
         <h1 class="display-4">Halo, calon Mahasiswa Baru!</h1>
         <p class="lead">selamat datang di web pendaftaran mahasiswa baru unhas!</p>
-        <img src="{{asset('img/logounhas.png')}}" alt="img" width="100" class="">
         <hr class="my-4">
         {{-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> --}}
-    </div>
+    </div> 
 </div>
 
 @include('layout.footer')
