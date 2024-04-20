@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function dashboard(){
+        return view('adminpage.dashboard');
+    }
     public function index(){
-        return view('homepage.dashboard');
+        return view('homepage.index');
     }
 }
