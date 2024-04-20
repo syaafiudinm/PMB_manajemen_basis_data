@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('peserta', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('NISN');
             $table->string('nama');
             $table->string('Fakultas');
