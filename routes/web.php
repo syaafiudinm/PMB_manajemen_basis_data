@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 
@@ -15,6 +16,10 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::controller(AuthController::class)->group(function(){
+    Route::get('register', 'register')->name('register');
+    Route::post('register', 'registerSave')->name('register.save');
+});
+
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');

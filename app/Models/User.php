@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -47,5 +49,12 @@ class User extends Authenticatable
     public function peserta(): HasOne
     {
         return $this->hasOne(Peserta::class);
+    }
+
+    public function role(): Attribute
+    {
+        return new Attribute(
+            get: fn($value) => ["user", "admin"][$value],
+        );
     }
 }
