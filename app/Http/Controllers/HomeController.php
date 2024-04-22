@@ -12,4 +12,8 @@ class HomeController extends Controller
     public function index(){
         return view('homepage.index');
     }
+
+    public function pendaftaran(){
+        return view('homepage.pendaftaran');
+    }
 }

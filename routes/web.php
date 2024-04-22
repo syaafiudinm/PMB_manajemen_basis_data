@@ -26,3 +26,4 @@ Route::controller(AuthController::class)->group(function(){
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+Route::get('/pendaftaran', [HomeController::class, 'pendaftaran'])->name('pendaftaran');

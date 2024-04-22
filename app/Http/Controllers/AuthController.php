@@ -38,6 +38,11 @@ class AuthController extends Controller
 
     public function loginAction(Request $request){
 
+        $request->validate([
+            'email' => 'required|string',
+            'password' => 'required|max:8|string'
+        ]);
+
         $credentials = [
             'email' => $request->email,
             'password'=> $request->password
@@ -46,6 +51,6 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)) {
             return redirect('/');
         }
-        return back()->with('error', 'salah email atau passta bos');
+        return back()->with('error', 'email atau password salah');
     }
 }
