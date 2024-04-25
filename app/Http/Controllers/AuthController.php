@@ -18,13 +18,20 @@ class AuthController extends Controller
         Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|string',
-            'password' => 'required|max:8|string'
+            'password' => 'required|max:8|string',
+            'NISN' => 'required|max:8|string',
+            'jurusan' => 'required|string',
+            'phone' => 'required|max:12|string'
+
         ])->validate();
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'NISN' => $request->NISN,
+            'jurusan' => $request->jurusan,
+            'phone' => $request->phone,
             'role' => "0"
         ]);
 

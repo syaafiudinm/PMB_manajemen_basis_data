@@ -29,6 +29,27 @@
                                                 @enderror
                                         </div>
                                         <div class="form-group">
+                                            <input type="text" name="NISN" class="form-control form-control-user"
+                                                placeholder="Enter Your NISN">
+                                                @error('NISN')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="jurusan" class="form-control form-control-user"
+                                                placeholder="Enter Jurusan">
+                                                @error('jurusan')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phone" class="form-control form-control-user"
+                                                placeholder="Enter your phone number">
+                                                @error('phone')
+                                                    <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                        </div>
+                                        <div class="form-group">
                                             <input type="password" name="password" class="form-control form-control-user" placeholder="Password">
                                                 @error('password')
                                                 <span class="text-danger">{{$message}}</span>
