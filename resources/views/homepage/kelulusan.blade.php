@@ -1,5 +1,7 @@
 @include('layout.header')
 @include('layout.navbar')
+
+
 <div class="container mt-5 mb-5">
     <div class="container mt-5">
         <div class="row">

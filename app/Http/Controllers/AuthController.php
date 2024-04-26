@@ -50,14 +50,26 @@ class AuthController extends Controller
             'password' => 'required|max:8|string'
         ]);
 
-        $credentials = [
+        $user = [
             'email' => $request->email,
-            'password'=> $request->password
+            'password'=> $request->password,
+            'role' => false
         ];
 
-        if(Auth::attempt($credentials)) {
+        $admin = [
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => true
+        ];
+
+
+
+        if(Auth::attempt($user)) {
             return redirect('/');
-        }
-        return back()->with('error', 'email atau password salah');
+        }elseif(Auth::attempt($admin)) {
+            return redirect('/dashboard');
+        } else {
+            return back()->with('status', 'salah passta bos');
+        } 
     }
 }

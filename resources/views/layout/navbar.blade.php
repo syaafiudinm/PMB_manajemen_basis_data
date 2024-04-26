@@ -12,13 +12,13 @@
                 <a class="nav-link {{Route::is('index') ? 'active' : ''}}" href="{{route('index')}}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Fakultas & Prodi</a>
+                <a class="nav-link {{Route::is('ukt') ? 'active' : ''}}" href="{{route('ukt')}}">Cek UKT</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {{Route::is('kelulusan') ? 'active' : ''}}" href="{{route('kelulusan')}}">Kelulusan</a>
             </li>
             </ul>
-            <a href="#" class="btn btn-primary">My Account</a>
+            <a href="{{route('login')}}" class="btn btn-primary">login To Your Account</a>
             {{-- <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
