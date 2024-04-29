@@ -41,4 +41,24 @@ class HomeController extends Controller
             'users' => $users->paginate(4)->withQueryString()
         ]);
     }
+
+    public function edit(int $id){
+        $users = User::findOrFail($id);
+        return view('adminpage.edit_data', compact('users'));
+    }
+
+    public function update(Request $request, int $id){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|string',
+            'phone' => 'required|max:12|string'
+        ]);
+
+        User::findOrFail($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone
+        ]);
+        return redirect()->back()->with('status', 'data berhasil diubah');
+    }
 }

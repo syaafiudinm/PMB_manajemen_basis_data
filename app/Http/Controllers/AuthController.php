@@ -69,7 +69,7 @@ class AuthController extends Controller
         }elseif(Auth::attempt($admin)) {
             return redirect('/dashboard');
         } else {
-            return back()->with('status', 'salah passta bos');
+            return back()->with('error', 'salah passta bos');
         } 
     }
 }

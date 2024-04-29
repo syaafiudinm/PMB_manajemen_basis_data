@@ -88,59 +88,53 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    </div>
-
                     <!-- Content Row -->
-                    <div class="container mt-5 mb-5">
-                        <div class="container mt-5">
-                            <div class="row">
-                                <div class="col md-12">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <h1 class="text-center">Daftar Kelulusan</h1>
-                                                <div class="d-flex" style="gap: 10px;">
-                                                    <form action="{{route('kelulusan')}}" method="GET" class="d-flex">
-                                                        <input name="search" class="form-control me-2" style="margin-right: 10px;" type="text" placeholder="Search" aria-label="Search">
-                                                        <button class="btn btn-outline-success" type="submit">Search</button>
-                                                    </form>
-                                                    <a href="" class="btn btn-danger ml-auto">Add Data</a>
-                                                </div>
+                    <div class="container mt-5">
+                        <div class="row">
+                            <div class="col md-12">
+                
+                                @if (session('status'))
+                                    <div class="alert alert-success">{{session('status')}}</div>
+                                @endif
+                
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="d-flex">
+                                            <h4>Add Data
+                                            </h4>
+                                            <a href="{{url('dashboard')}}" class="btn btn-danger ml-auto">Back</a>
                                         </div>
-                                        <div class="card-body">
-                                           <table class="table table-border table-striped">
-                                             <thead>
-                                                <tr>
-                                                    <th>NO.</th>
-                                                    <th>nama</th>
-                                                    <th>NISN</th>
-                                                    <th>email</th>
-                                                    <th>jurusan</th>
-                                                    <th>Aksi</th>
-                                                </tr>
-                                             </thead>
-                                             <tbody>
-                                                @foreach ($users as $user)
-                                                    <tr>
-                                                        <td>{{($users->currentPage() -1 ) * $users->perPage() + $loop->iteration}}</td>
-                                                        <td>{{$user->name}}</td>
-                                                        <td>{{$user->NISN}}</td>
-                                                        <td>{{$user->email}}</td>
-                                                        <td>{{$user->jurusan}}</td>
-                                                        <td>
-                                                            <a href="{{'mahasiswa/'.$user->id.'/edit_data'}}" class="btn btn-primary">edit</a>
-                                                            <a href="" class="btn btn-success">hapus</a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                             </tbody>
-                                           </table>
-                                           <div>
-                                            {{$users->links('pagination::bootstrap-5')}}
+                                    </div>
+                                    <div class="card-body">
+                                        <form action="{{url('mahasiswa/'.$users->id.'/edit_data')}}">
+                                            @csrf
+                                            @method('put')
+                                            <div class="mb-3">
+                                                <label>nama</label>
+                                                <input type="text" class="form-control" name="name" value="{{$users->name}}" autocomplete="off">
+                                                @error('name')
+                                                    <span class="text text-danger">{{$message}}</span>
+                                                @enderror
                                             </div>
-                                        </div>
+                                            <div class="mb-3">
+                                                <label>email</label>
+                                                <input type="text" class="form-control" name="email" value="{{$users->email}}" autocomplete="off">
+                                                @error('email')
+                                                    <span class="text text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <label>jurusan</label>
+                                                <input type="text" class="form-control" name="phone" value="{{$users->phone}}" autocomplete="off">
+                                                @error('phone')
+                                                    <span class="text text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="mb-3">
+                                                <button type="submit" class="btn btn-danger">Save</button>
+                                            </div>
+                
+                                        </form>
                                     </div>
                                 </div>
                             </div>
