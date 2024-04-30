@@ -3,6 +3,7 @@
     
     <!-- Page Wrapper -->
     <div id="wrapper">
+
         @include('layoutAdmin.navbar')
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -58,27 +59,28 @@
                                 </form>
                             </div>
                         </li>
-
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                 aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">halo, {{Auth::user()->name}}</span>
+                            </a>
+                            
+                        </li>
                         <div class="topbar-divider d-none d-sm-block"></div>
 
-                        <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">syaafiudinm</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
-                            </a>
-                            <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                @method('delete')
+                                <button onclick="return confirm('apakah anda ingin logout?')" class="btn btn-primary mt-3 mr-2 d-none d-lg-inline" type="submit">
+                                    <i class="d-none d-lg-inline fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
-                                </a>
-                            </div>
+                                </button>
+                            </form>
                         </li>
+
+                        <!-- Nav Item - User Information -->
+                        
                     </ul>
                 </nav>
                 <!-- End of Topbar -->
@@ -101,8 +103,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                total pendaftar</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">321.000</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -119,8 +121,8 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                total mahasiswa lulus</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{$users->count()}}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>

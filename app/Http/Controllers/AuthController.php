@@ -72,4 +72,10 @@ class AuthController extends Controller
             return back()->with('error', 'salah passta bos');
         } 
     }
+
+    public function logout(){
+        Auth::logout();
+
+        return redirect('login');
+    }
 }

@@ -3,7 +3,7 @@
 
 <div class="container mt-5">
     <div class="jumbotron">
-        <h1 class="display-4">Halo, calon Mahasiswa Baru!</h1>
+        <h1 class="display-4">Halo, {{Auth::user()->name}}!</h1>
         <p class="lead">selamat datang di web pendaftaran mahasiswa baru unhas!</p>
         <hr class="my-4">
         {{-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> --}}

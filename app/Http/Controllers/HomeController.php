@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Ukt;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     public function dashboard(){
-        return view('adminpage.dashboard');
+        $users = User::get();
+        return view('adminpage.dashboard', compact('users'));
     }
 
     public function dashboardTable(){
@@ -68,4 +70,19 @@ class HomeController extends Controller
 
         return redirect()->back()->with('status', 'data deleted');
     }
+
+    public function showUserDetails()
+    {
+        // Memastikan bahwa pengguna telah login
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $users = User::find($userId);
+    
+            return view('homepage.details', compact('users'));
+        } else {
+            // Jika pengguna tidak login, redirect ke halaman login atau tampilkan pesan
+            return redirect('/login')->with('error', 'Anda harus login terlebih dahulu!');
+        }
+    }
+
 }

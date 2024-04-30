@@ -18,7 +18,25 @@
                 <a class="nav-link {{Route::is('kelulusan') ? 'active' : ''}}" href="{{route('kelulusan')}}">Kelulusan</a>
             </li>
             </ul>
-            <a href="{{route('login')}}" class="btn btn-primary">login To Your Account</a>
+
+            
+            
+            @auth
+            <a href="{{route('show')}}" class="btn btn-success" style="margin-right: 6px;">my Account</a>
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                @method('delete')
+                <button onclick="return confirm('apakah anda ingin logout?')" class="btn btn-primary  mr-2 d-none d-lg-inline" type="submit">
+                    <i class="d-none d-lg-inline fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </button>
+            </form>
+
+            @else
+            <a href="{{route('login')}}" class="btn btn-primary" style="margin-right: 8px;">login</a>
+            @endauth
+            
+            
             {{-- <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
