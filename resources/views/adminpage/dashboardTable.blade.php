@@ -130,8 +130,8 @@
                                                         <td>{{$user->email}}</td>
                                                         <td>{{$user->jurusan}}</td>
                                                         <td>
-                                                            <a href="{{'mahasiswa/'.$user->id.'/edit_data'}}" class="btn btn-primary">edit</a>
-                                                            <a href="" class="btn btn-success">hapus</a>
+                                                            <a href="{{url('mahasiswa/'.$user->id.'/edit_data')}}" class="btn btn-primary">edit</a>
+                                                            <a href="{{url('mahasiswa/'.$user->id.'/delete')}}" onclick="confirmation(event)" class="btn btn-success">hapus</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

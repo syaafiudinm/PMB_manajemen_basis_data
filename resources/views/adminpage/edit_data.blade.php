@@ -106,7 +106,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <form action="{{url('mahasiswa/'.$users->id.'/edit_data')}}">
+                                        <form action="{{url('mahasiswa/'.$users->id.'/edit_data')}}" method="POST">
                                             @csrf
                                             @method('put')
                                             <div class="mb-3">
@@ -124,7 +124,7 @@
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
-                                                <label>jurusan</label>
+                                                <label>phone</label>
                                                 <input type="text" class="form-control" name="phone" value="{{$users->phone}}" autocomplete="off">
                                                 @error('phone')
                                                     <span class="text text-danger">{{$message}}</span>

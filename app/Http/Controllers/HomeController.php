@@ -61,4 +61,11 @@ class HomeController extends Controller
         ]);
         return redirect()->back()->with('status', 'data berhasil diubah');
     }
+
+    public function destroy(int $id){
+        $users = User::findOrFail($id);
+        $users->delete();
+
+        return redirect()->back()->with('status', 'data deleted');
+    }
 }

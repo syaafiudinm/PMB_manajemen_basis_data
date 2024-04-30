@@ -30,5 +30,6 @@ Route::get('/dashboard_table', [HomeController::class, 'dashboardTable'])->name(
 Route::get('/kelulusan', [HomeController::class, 'kelulusan'])->name('kelulusan');
 Route::get('/ukt', [HomeController::class, 'ukt'])->name('ukt');
 
-Route::get('mahasiswa/{id}/edit_data', [HomeController::class, 'edit'])->name('edit');
-Route::put('mahasiswa/{id}/edit_data', [HomeController::class,'update'])->name('update');
+Route::get('mahasiswa/{id}/edit_data', [HomeController::class, 'edit'])->name('edit')->middleware('isAdmin');
+Route::put('mahasiswa/{id}/edit_data', [HomeController::class,'update'])->name('update')->middleware('isAdmin');
+Route::get('mahasiswa/{id}/delete', [HomeController::class, 'destroy'])->name('delete')->middleware('isAdmin');
