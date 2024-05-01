@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Ukt extends Model
 {
@@ -14,6 +15,10 @@ class Ukt extends Model
         'golongan',
         'biaya'
     ];
+
+    public function user(): BelongsTo{
+        return $this->belongsTo(User::class);
+    }
 
     
     use HasFactory;

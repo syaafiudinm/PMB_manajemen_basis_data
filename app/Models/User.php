@@ -53,6 +53,10 @@ class User extends Authenticatable
         return $this->hasMany(Jurusan::class);
     }
 
+    public function ukt():HasOne{
+        return $this->hasOne(Ukt::class);
+    }
+
     public function role(): Attribute
     {
         return new Attribute(
