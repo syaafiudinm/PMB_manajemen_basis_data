@@ -24,7 +24,7 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('login', 'loginAction')->name('login.action')->middleware('guest');
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index')->middleware('auth');
 Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard')->middleware('isAdmin');
 Route::get('/dashboard_table', [HomeController::class, 'dashboardTable'])->name('dashboardTable')->middleware('isAdmin');
 Route::get('/kelulusan', [HomeController::class, 'kelulusan'])->name('kelulusan');

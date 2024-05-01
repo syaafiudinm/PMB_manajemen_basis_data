@@ -1,12 +1,42 @@
 @include('layout.header')
 @include('layout.navbar')
 
-<ul class="list-group container mt-5">
-    <li class="list-group-item">{{$users->name}}</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-    <li class="list-group-item">A fourth item</li>
-    <li class="list-group-item">And a fifth one</li>
-  </ul>
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Halo, {{Auth::user()->name}}!</h1>
+        <p class="lead">berikut ini adalah data anda</p>
+        <hr class="my-4">
+        {{-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> --}}
+    </div> 
+</div>
+
+<div class="container mt-5">
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Nama Lengkap</div>
+            {{$users->name}}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Email Aktif</div>
+            {{$users->email}}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">NISN</div>
+            {{$users->NISN}}
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">No. Telepon</div>
+            {{$users->phone}}
+          </div>
+        </li>
+    </ol>
+</div>
 
 @include('layout.footer')
