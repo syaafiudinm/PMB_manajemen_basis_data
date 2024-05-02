@@ -17,6 +17,9 @@
             <li class="nav-item">
                 <a class="nav-link {{Route::is('kelulusan') ? 'active' : ''}}" href="{{route('kelulusan')}}">Kelulusan</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{Route::is('fakultas') ? 'active' : ''}}" href="{{route('fakultas')}}">Fakultas</a>
+            </li>
             </ul>
 
             
