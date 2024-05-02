@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fakultas;
 use App\Models\Ukt;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class HomeController extends Controller
     }
 
     public function kelulusan(){
-        $users = User::orderBy('NISN')->with('jurusan');
+        $users = User::orderBy('id')->with('jurusan');
 
         if(request()->has('search')){
             $users = $users->where('name', 'like', '%' . request()->get('search', '') . '%');
@@ -84,6 +85,11 @@ class HomeController extends Controller
             // Jika pengguna tidak login, redirect ke halaman login atau tampilkan pesan
             return redirect('/login')->with('error', 'Anda harus login terlebih dahulu!');
         }
+    }
+
+    public function fakultas(){
+        $fakultas = Fakultas::get();
+        return view('homepage.fakultas', compact('fakultas'));
     }
 
 }

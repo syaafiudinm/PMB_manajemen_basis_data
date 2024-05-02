@@ -11,7 +11,7 @@ class Fakultas extends Model
 {
     protected $table = 'fakultas';
 
-    protected $fillable = 'name';
+    protected $fillable = ['name'];
 
     public function jurusan():HasMany{
         return $this->hasMany(Jurusan::class);

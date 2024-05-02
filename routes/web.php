@@ -36,3 +36,5 @@ Route::get('mahasiswa/{id}/delete', [HomeController::class, 'destroy'])->name('d
 Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/detail_mahasiswa', [HomeController::class, 'showUserDetails'])->name('show')->middleware('auth');
+
+Route::get('/fakultas', [HomeController::class, 'fakultas'])->name('fakultas')->middleware('auth');
