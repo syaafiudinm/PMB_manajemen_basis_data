@@ -36,6 +36,27 @@
             {{$users->phone}}
           </div>
         </li>
+        @if ($users->ukt)
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">ukt</div>
+            {{$users->ukt->biaya}}
+          </div>
+        </li>
+        @else
+            <p>tidak ada ukt</p>
+        @endif
+
+        @if ($users->jurusan)
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">jurusan</div>
+            {{$users->jurusan->name}}
+          </div>
+        </li>
+        @else
+            <p>tidak ada jurusan</p>
+        @endif
     </ol>
 </div>
 

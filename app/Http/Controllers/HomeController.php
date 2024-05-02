@@ -34,13 +34,13 @@ class HomeController extends Controller
     }
 
     public function kelulusan(){
-        $users = User::orderBy('NISN');
+        $users = User::orderBy('NISN')->with('jurusan');
 
         if(request()->has('search')){
             $users = $users->where('name', 'like', '%' . request()->get('search', '') . '%');
         }
         return view('homepage.kelulusan',[
-            'users' => $users->paginate(4)->withQueryString()
+            'users' => $users->paginate(4)->withQueryString(),
         ]);
     }
 
@@ -76,7 +76,8 @@ class HomeController extends Controller
         // Memastikan bahwa pengguna telah login
         if (Auth::check()) {
             $userId = Auth::id();
-            $users = User::find($userId);
+            $users = User::with('jurusan','ukt')->find($userId);
+            
     
             return view('homepage.details', compact('users'));
         } else {

@@ -36,7 +36,7 @@
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->NISN}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->jurusan}}</td>
+                                    <td>{{$user->jurusan->name}}</td>
                                 </tr>
                             @endforeach
                          </tbody>

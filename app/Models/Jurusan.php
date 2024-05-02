@@ -10,11 +10,15 @@ class Jurusan extends Model
 
     protected $table = 'jurusan';
 
-    protected $fillable = 'name';
+    protected $fillable = ['name'];
 
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function fakultas(){
+        return $this->belongsTo(Fakultas::class);
     }
 
     use HasFactory;
