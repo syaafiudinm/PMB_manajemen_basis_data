@@ -104,7 +104,7 @@
                                                         <input name="search" class="form-control me-2" style="margin-right: 10px;" type="text" placeholder="Search" aria-label="Search">
                                                         <button class="btn btn-outline-success" type="submit">Search</button>
                                                     </form>
-                                                    <a href="" class="btn btn-danger ml-auto">Add Data</a>
+                                                    <a href="{{route('register')}}" class="btn btn-danger ml-auto">Add Data</a>
                                                 </div>
                                         </div>
                                         <div class="card-body">
@@ -126,7 +126,7 @@
                                                         <td>{{$user->name}}</td>
                                                         <td>{{$user->NISN}}</td>
                                                         <td>{{$user->email}}</td>
-                                                        <td>{{$user->jurusan}}</td>
+                                                        <td>{{$user->jurusan->name}}</td>
                                                         <td>
                                                             <a href="{{url('mahasiswa/'.$user->id.'/edit_data')}}" class="btn btn-primary">edit</a>
                                                             <a href="{{url('mahasiswa/'.$user->id.'/delete')}}" onclick="confirmation(event)" class="btn btn-success">hapus</a>
@@ -152,7 +152,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; syaafiudinm 2021</span>
                     </div>
                 </div>
             </footer>
